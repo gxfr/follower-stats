@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="font-awesome.min.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <script src="prettify.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="d3.v4.min.js"></script>
+        <script src="app.js"></script>
+        <script src="jquery.min.js"></script>
+    </head>
+    <body onload="prettyPrint()">
+        <div class="container">
+            <div class = "row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-header" style="margin-top:0px"></div>
+                    <div id="followers_graph"></div>
+                    <div style="text-align:center;">
+                        <div style="display:inline-block">
+                            <form class="form-inline" role="form">
+                                <div class="form form-inline">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="rankLog" checked="" /> Log-Scale Percentage Rank
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="followersLog" checked="" /> Log-Scale Followers
+                                    </label>
+                                </div>
+                            </form>
+                            <form class="form form-inline" onsubmit="fetchUser(document.getElementById('githubuserid').value); return false;">
+                                <div class="input-group" style="margin-top:10px">
+                                    <input type="text" class="form-control" placeholder="Enter Your GitHub UserID" id="githubuserid" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button submit">
+                                            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" id="spinner" style="display:None"></span>
+                                            <span id="github_search">Search</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div></div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-warning" id="gh_account_warning" style="display:None"></div>
+                            <div class="alert alert-info" id="gh_account_info" style="display:None">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <img id="gh_account_img" src="" class="img-responsive" style="width:100%" />
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <p><b><span id="gh_account_login"></span></b></p>
+                                        <span id="gh_account_text"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="github.js"></script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
